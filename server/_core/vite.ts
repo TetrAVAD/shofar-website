@@ -47,11 +47,17 @@ export async function setupVite(app: Express, server: Server) {
   });
 }
 
+import { fileURLToPath } from "url";
+
 export function serveStatic(app: Express) {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
   const distPath =
     process.env.NODE_ENV === "development"
-      ? path.resolve(import.meta.dirname, "../..", "dist", "public")
-      : path.resolve(import.meta.dirname, "public");
+      ? path.resolve(__dirname, "../..", "dist")
+      : __dirname; // In production (dist/index.js), static files are in the same directory
+
   if (!fs.existsSync(distPath)) {
     console.error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`
