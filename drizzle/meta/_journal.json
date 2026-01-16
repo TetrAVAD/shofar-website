@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1768343053842,
+      "tag": "0000_misty_guardsmen",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1768343727927,
+      "tag": "0001_giant_tony_stark",
+      "breakpoints": true
+    }
+  ]
+}
